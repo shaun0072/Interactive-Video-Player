@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	  <meta charset="utf-8">
+	  <title>Interactive Video Player</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link rel="stylesheet" href="css/normalize.css">
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	  <link rel="stylesheet" href="css/my-styles.css">
+  </head>
+  
+  <body>
+	<div class="wrapper">
+	  <div class="media-container">
+		<video id="Video1">
+			<source src="video/video.mp4" type="video/mp4" />
+			<source src="video/video.ogg" type="video/ogg" />
+			<track label="English" src="video/captions.vtt" kind="subtitles" srclang="en-us"  default />
+		</video>
+		
+		<progress id="progress" value="0">
+			<span id="progressBar"></span>
+		</progress>
+		
+		<div id="buttonbar">
+			<div class="left-side">
+				<!-- <button id="restart" onclick="restart();">[]</button> --> 
+				<!-- <button id="rew" onclick="skip(-10)">&lt;&lt;</button> -->
+				<button id="play-pause"><img src="icons/play-icon.png" alt="Play-button"/></button>
+				<!-- <button id="fastFwd" onclick="skip(10)">&gt;&gt;</button> -->
+				<span id="currentTime"></span>
+			</div>
+			<div class="right-side">
+				<button id="volume-mute"><img src="icons/volume-on-icon.png" alt="Volume/Mute button"/></button>
+				<button id="fullscreen"><img src="icons/fullscreen-icon.png" alt="Full-Screen button"/></button>
+			</div>
+		</div>
+	  </div>
+		
+		<div id="transcript">
+			<p class="words" data-start="00.00" data-end="4.13">Now that we've looked at the architecture of the internet, let's see how you might</p>
+			<p class="words" data-start="4.13" data-end="7.535">connect your personal devices to the internet inside your house.</p> 
+			<p class="words" data-start="7.535" data-end="11.270">Well there are many ways to connect to the internet, and</p>
+			<p class="words" data-start="11.270" data-end="13.960">most often people connect wirelessly.</p> 
+			<p class="words" data-start="13.960" data-end="17.940">Let's look at an example of how you can connect to the internet.</p> 
+			<p class="words" data-start="17.940" data-end="22.370">If you live in a city or a town, you probably have a coaxial cable for</p> 
+			<p class="words" data-start="22.370" data-end="26.880">cable Internet, or a phone line if you have DSL, running to the outside of</p> 
+			<p class="words" data-start="26.880" data-end="32.100">your house, that connects you to the Internet Service Provider, or ISP.</p> 
+			<p class="words" data-start="32.100" data-end="34.730">If you live far out in the country, you'll more likely have</p> 
+			<p class="words" data-start="34.730" data-end="39.430">a dish outside your house, connecting you wirelessly to your closest ISP, or</p> 
+			<p class="words" data-start="39.430" data-end="42.350">you might also use the telephone system.</p> 
+			<p class="words" data-start="42.350" data-end="46.300">Whether a wire comes straight from the ISP hookup outside your house, or</p> 
+			<p class="words" data-start="46.300" data-end="49.270">it travels over radio waves from your roof,</p> 
+			<p class="words" data-start="49.270" data-end="53.760">the first stop a wire will make once inside your house, is at your modem.</p> 
+			<p class="words" data-start="53.760" data-end="57.780">A modem is what connects the internet to your network at home.</p> 
+			<p class="words" data-start="57.780" data-end="59.00">A few common residential modems are DSL or</p>
+		</div>
+
+	</div>
+  	<script src="js/script.js"></script>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/HideBar.js"></script>
+  </body>
+</html>
