@@ -59,7 +59,15 @@ volMuteButton.addEventListener('click', function() {
 });
 //FullScreen Mode Button
 fullscreenButton.addEventListener('click', function fullscreen() {
-	video.webkitRequestFullScreen();
+	if (video.requestFullscreen) {
+	  video.requestFullscreen();
+	} else if (video.msRequestFullscreen) {
+	  video.msRequestFullscreen();
+	} else if (video.mozRequestFullScreen) {
+	  video.mozRequestFullScreen();
+	} else if (video.webkitRequestFullscreen) {
+	  video.webkitRequestFullscreen();
+	}
 });
 
 //PROGRESS BAR
@@ -104,23 +112,14 @@ transcript.addEventListener('click', function(e) {
 increaseVolButton.addEventListener('click', function() {
 	if(video.volume < 1) {
 		var percent = Math.floor(video.volume * 100) + 10 + '%';
-		video.volume += .1;
+		video.volume += 0.1;
 		volumePercentHolder.textContent = percent;
 	}
 });
 decreaseVolButton.addEventListener('click', function() {
-	if(video.volume > .1) {
+	if(video.volume > 0.1) {
 		var percent = Math.floor(video.volume * 100) - 10 + '%';
-		video.volume -= .1;
+		video.volume -= 0.1;
 		volumePercentHolder.textContent = percent;
 	}
 });
-
-
-
-
-
-
-
-
-	

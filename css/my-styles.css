@@ -1,6 +1,5 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 1.5em;
 	text-align: justify;
 }
 .wrapper {
@@ -14,9 +13,11 @@ video {
 #transcript{
 	padding: 20px;
 }
-#transcript p{
+#transcript p {
 	display: inline;
+	font-size: 1.5em;
 	line-height: 1.8em;
+	cursor: pointer;
 }
 button:focus {
 	outline:0;
@@ -24,7 +25,7 @@ button:focus {
 
 /****************Video Player*********************/
 #Video1 {
-    margin-bottom: -92px;
+    margin-bottom: -79px;
 	position: relative;
 	z-index: -100;
 }
@@ -74,9 +75,9 @@ button:focus {
 	background: none;
 	border: none;
 }
-#buttonbar #currentTime {
+#currentTime {
 	color: white;
-	font-size: .7em;
+	font-size: 1em;
 }
 #play-pause {
 	width: 22px;
@@ -86,11 +87,11 @@ button:focus {
 }
 .volumeButtons {
 	color: white;
-	font-size: 1.2em;
+	font-size: 1.8em;
 }
 #volumePercent {
 	color: white;
-	font-size: .6em;
+	font-size: .9em;
 }
 .highlight {
     color: orange;
@@ -98,7 +99,21 @@ button:focus {
 /********************Media Queries**********************/
 @media screen and (max-width: 768px) {
 	#transcript p{
+		line-height: 1.6em;
+		font-size: 1.3em;
+	}
+}
+@media screen and (max-width: 415px) {
+	#transcript p{
+		font-size: 1em;
+		line-height: 1em
+	}
+	.volumeButtons,
+	#volumePercent {
+		display: none;
+	}
+	#currentTime {
+		font-size: 1em;
 		line-height: 1em;
-		font-size: .8em;
 	}
 }
