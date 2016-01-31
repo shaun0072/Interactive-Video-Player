@@ -5,7 +5,7 @@ body {
 }
 .wrapper {
 	margin: 0 auto;
-	max-width: 1200px;
+	max-width: 1000px;
 }
 video {
 	width: 100%;
@@ -16,6 +16,7 @@ video {
 }
 #transcript p{
 	display: inline;
+	line-height: 1.8em;
 }
 button:focus {
 	outline:0;
@@ -55,10 +56,9 @@ button:focus {
     background-color: rgba(0, 0, 0, .5);
 	position: relative;
 }
-#buttonbar > * > * {
-	margin: 10px;
-	background: none;
-	border: none;
+#buttonbar .left-side,
+#buttonbar .right-side {
+	height: 100%;
 }
 #buttonbar .left-side {
 	position: absolute;
@@ -67,6 +67,12 @@ button:focus {
 #buttonbar .right-side {
 	position: absolute;
 	right: 0;
+}
+#buttonbar > * > * {
+	margin: 0 10px;
+	height: 100%;
+	background: none;
+	border: none;
 }
 #buttonbar #currentTime {
 	color: white;
@@ -81,15 +87,10 @@ button:focus {
 .highlight {
     color: orange;
 }
-.clearfix:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-}
 /********************Media Queries**********************/
 @media screen and (max-width: 768px) {
-	
+	#transcript p{
+		line-height: 1em;
+		font-size: .8em;
+	}
 }

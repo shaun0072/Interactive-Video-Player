@@ -7,6 +7,9 @@ var volMuteButton = document.getElementById('volume-mute');
 var fullscreenButton = document.getElementById('fullscreen');
 var totalTime = "00:59";
 var currentTimeHolder = document.getElementById('currentTime');
+var transcript = document.getElementById('transcript');
+var textBlocks = document.querySelectorAll('.words');
+
 
 //FUNCTIONS
 
@@ -24,6 +27,7 @@ function updateTime() {
 
 //APPLICATION
 
+//Buttonbar Events
 //Current Time/Total Length
 currentTimeHolder.textContent = convertTimeFormat(Math.floor(video.currentTime)) + '/' + totalTime;
 video.addEventListener('timeupdate', updateTime);
@@ -37,7 +41,7 @@ playpauseButton.addEventListener('click', function() {
 	  video.pause();
 	  playpauseButton.innerHTML = '<img src="icons/play-icon.png" alt="play-button"/>';
    }
-})
+});
 //Volume/Mute Button
 volMuteButton.addEventListener('click', function() {
    var button = document.getElementById("volume-mute");
@@ -48,11 +52,12 @@ volMuteButton.addEventListener('click', function() {
 	   video.muted = false;
 	   button.innerHTML = '<img src="icons/volume-on-icon.png" alt="volume/mute button"/>';
    }
-})
+});
 //FullScreen Mode Button
 fullscreenButton.addEventListener('click', function fullscreen() {
 	video.webkitRequestFullScreen();
-})
+});
+
 //PROGRESS BAR
 //Set max value of #progress
 video.addEventListener('loadedmetadata', function() {
@@ -76,13 +81,34 @@ progress.addEventListener('click', function(e) {
 });
 //Highlight Text As Video Plays
 video.addEventListener('timeupdate', function(){  //When play event happens on video	
-	var textBlock = document.querySelectorAll('.words');
-	for (var i=0; i < textBlock.length; i++) {
-		var textBlockStart = textBlock[i].getAttribute("data-start");
-		var textBlockEnd = textBlock[i].getAttribute("data-end");
+	for (var i=0; i < textBlocks.length; i++) {
+		var textBlockStart = textBlocks[i].getAttribute("data-start") - 0.5;
+		var textBlockEnd = textBlocks[i].getAttribute("data-end") - 0.5;
 		if(textBlockStart < video.currentTime && video.currentTime < textBlockEnd) {
-			textBlock[i].className += ' highlight';//Add class .highlite
+			textBlocks[i].className += ' highlight';//Add class .highlite
 		}else
-			textBlock[i].className = 'words';//remove .highlite class	
+			textBlocks[i].className = 'words';//remove .highlite class	
 	}	
 });
+//Bind Transcript text to video.currentTime
+transcript.addEventListener('click', function(e) {
+	var textBlock = e.target;
+	var startTime = textBlock.getAttribute("data-start");
+	video.currentTime = startTime;
+});
+		
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
