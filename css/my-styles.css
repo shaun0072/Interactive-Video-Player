@@ -84,6 +84,14 @@ button:focus {
 #play-pause img {
 	margin-bottom: -5px;
 }
+.volumeButtons {
+	color: white;
+	font-size: 1.2em;
+}
+#volumePercent {
+	color: white;
+	font-size: .6em;
+}
 .highlight {
     color: orange;
 }

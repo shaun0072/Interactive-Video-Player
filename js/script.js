@@ -9,6 +9,9 @@ var totalTime = "00:59";
 var currentTimeHolder = document.getElementById('currentTime');
 var transcript = document.getElementById('transcript');
 var textBlocks = document.querySelectorAll('.words');
+var increaseVolButton = document.getElementById('volumeUp');
+var decreaseVolButton = document.getElementById('volumeDown');
+var volumePercentHolder = document.getElementById('volumePercent');
 
 
 //FUNCTIONS
@@ -24,6 +27,7 @@ function updateTime() {
 	var totalTime = convertTimeFormat(Math.floor(video.duration));
 	currentTimeHolder.textContent = convertTimeFormat(Math.floor(video.currentTime)) + '/' + totalTime;
 }
+
 
 //APPLICATION
 
@@ -96,19 +100,27 @@ transcript.addEventListener('click', function(e) {
 	var startTime = textBlock.getAttribute("data-start");
 	video.currentTime = startTime;
 });
-		
+//VOLUME BUTTONS
+increaseVolButton.addEventListener('click', function() {
+	if(video.volume < 1) {
+		var percent = Math.floor(video.volume * 100) + 10 + '%';
+		video.volume += .1;
+		volumePercentHolder.textContent = percent;
+	}
+});
+decreaseVolButton.addEventListener('click', function() {
+	if(video.volume > .1) {
+		var percent = Math.floor(video.volume * 100) - 10 + '%';
+		video.volume -= .1;
+		volumePercentHolder.textContent = percent;
+	}
+});
 
-		
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
 	
